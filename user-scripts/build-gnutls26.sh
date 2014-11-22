@@ -4,6 +4,7 @@ THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $THIS_DIR/set-env-1.sh
 ####################################################################################################
 
+cd $NDK_ADDON_SRC
 apt-get source gnutls26
 pushd gnutls26*
 patch -p1 <$BASEDIR/patches/gnutls-no-atfork.patch

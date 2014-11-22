@@ -4,6 +4,7 @@ THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $THIS_DIR/set-env-1.sh
 ####################################################################################################
 
+cd $NDK_ADDON_SRC
 apt-get source gsasl
 pushd gsasl*
 patch -p1 <$BASEDIR/patches/gsasl-avoid-memxor-conflict.patch

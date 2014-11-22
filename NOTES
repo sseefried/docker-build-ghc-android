@@ -20,3 +20,8 @@ Things Docker does right!
   You can "docker run -it <image> bash" to have a look at the state at any
   point of the install process.
 
+- Unfortunately, docker can't know ... really it can't ... whether
+  adding an "ADD ..." command somewhere in the middle of a list of already
+  performed commands will affect those later on or not. It has to assume it
+  will. This is why you have to build the Dockerfile incrementally in a
+  somewhat careful way.

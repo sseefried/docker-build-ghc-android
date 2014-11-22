@@ -97,5 +97,23 @@ RUN ./build-gnutls26.sh
 # architecture and then we build the cross-compiler.
 #
 
+# This will take a while
+ADD user-scripts/build-ghc-host.sh $BASE/
+RUN ./build-ghc-host.sh
 
+# This takes a while too
+ADD user-scripts/build-ghc-cross-compiler.sh $BASE/
+RUN ./build-ghc-cross-compiler.sh
 
+ADD user-scripts/build-hsc2hc-wrapper.sh $BASE/
+RUN ./build-hsc2hs-wrapper.sh
+
+ADD user-scripts/build-cross-compile-cabal.sh $BASE/
+RUN ./build-cross-compile-cabal.sh
+
+ADD user-scripts/add-bindir-links.sh $BASE/
+RUN ./add-bindir-links.sh
+
+#
+# Done!
+#
