@@ -15,7 +15,7 @@ packages, some that require patches to make them work with Android.
 Developing a build script with this many dependencies is a nightmare.
 
 You can only be sure your script *really* works if you run it on a pristine
-environment. But when your script breaks 50 minutes in it is just the sort of
+environment. But when your script breaks after 50 minutes it is just the sort of
 thing that can make you want to consider changing careers, especially if it
 happens a few times in a row. Development is made so much easier with
 quick turn-around times.

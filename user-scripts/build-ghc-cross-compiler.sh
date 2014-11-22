@@ -61,6 +61,7 @@ function check_install_gmp_constants() {
 
 make $MAKEFLAGS || true # TMP hack, see http://hackage.haskell.org/trac/ghc/ticket/7490
 make $MAKEFLAGS || true # TMP hack, target mkGmpDerivedConstants fails on build host
+# There's a long pause at this point. Just be patient!
 check_install_gmp_constants
 make $MAKEFLAGS || true # TMP hack, tries to execut inplace stage2
 make $MAKEFLAGS || true # TMP hack, one more for luck
