@@ -105,7 +105,7 @@ RUN ./build-ghc-host.sh
 ADD user-scripts/build-ghc-cross-compiler.sh $BASE/
 RUN ./build-ghc-cross-compiler.sh
 
-ADD user-scripts/build-hsc2hc-wrapper.sh $BASE/
+ADD user-scripts/build-hsc2hs-wrapper.sh $BASE/
 RUN ./build-hsc2hs-wrapper.sh
 
 ADD user-scripts/build-cross-compile-cabal.sh $BASE/
@@ -115,5 +115,18 @@ ADD user-scripts/add-bindir-links.sh $BASE/
 RUN ./add-bindir-links.sh
 
 #
-# Done!
+# Now to add add some PATHs to the .bashrc
 #
+ADD user-scripts/add-paths-to-bashrc.sh $BASE/
+RUN ./add-paths-to-bashrc.sh
+
+#
+# Now to clean up the build directory. It takes up a lot of space (3.6G).
+#
+
+WORKDIR /home/androidbuilder
+RUN rm -rf $BASE
+
+ADD user-scripts/README /home/androidbuilder/
+RUN cat README
+

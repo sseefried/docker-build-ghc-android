@@ -1,0 +1,38 @@
+----------------------------------------
+GHC 7.8.3 Android cross-compiler for ARM
+----------------------------------------
+
+Congratulations! You are the proud owner of a GHC ARM cross compilation
+environment.
+
+User
+----
+
+This build environment is built under the user 'androidbuilder' in the
+the home directory /home/androidbuilder
+
+user: androidbuilder
+password: adb
+
+Installed compilers
+-------------------
+
+There are two versions of the compiler installed.
+
+1. One that targets the host architecture (x86_64)
+
+   ~/.ghc/android-host
+
+2. One that targets the ARM achitecture
+
+  ~/.ghc/android-14/arm-linux-androideabi-4.8
+
+
+Environment variables
+---------------------
+
+The PATH has been extended with the path to the cross-compiler.
+To access the host compiler use the prefix $GHC_HOST/bin. e.g.
+
+  $ $GHC_HOST/bin/ghc --version
+
