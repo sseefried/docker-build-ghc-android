@@ -1,0 +1,95 @@
+diff --git a/lib/gl/hmac-md5.c b/lib/gl/hmac-md5.c
+index d1bc363..c87164a 100644
+--- a/lib/gl/hmac-md5.c
++++ b/lib/gl/hmac-md5.c
+@@ -57,7 +57,7 @@ hmac_md5 (const void *key, size_t keylen,
+   md5_init_ctx (&inner);
+ 
+   memset (block, IPAD, sizeof (block));
+-  memxor (block, key, keylen);
++  memxor_gsasl (block, key, keylen);
+ 
+   md5_process_block (block, 64, &inner);
+   md5_process_bytes (in, inlen, &inner);
+@@ -69,7 +69,7 @@ hmac_md5 (const void *key, size_t keylen,
+   md5_init_ctx (&outer);
+ 
+   memset (block, OPAD, sizeof (block));
+-  memxor (block, key, keylen);
++  memxor_gsasl (block, key, keylen);
+ 
+   md5_process_block (block, 64, &outer);
+   md5_process_bytes (innerhash, 16, &outer);
+diff --git a/lib/gl/hmac-sha1.c b/lib/gl/hmac-sha1.c
+index c93dcc5..6c6f77f 100644
+--- a/lib/gl/hmac-sha1.c
++++ b/lib/gl/hmac-sha1.c
+@@ -57,7 +57,7 @@ hmac_sha1 (const void *key, size_t keylen,
+   sha1_init_ctx (&inner);
+ 
+   memset (block, IPAD, sizeof (block));
+-  memxor (block, key, keylen);
++  memxor_gsasl (block, key, keylen);
+ 
+   sha1_process_block (block, 64, &inner);
+   sha1_process_bytes (in, inlen, &inner);
+@@ -69,7 +69,7 @@ hmac_sha1 (const void *key, size_t keylen,
+   sha1_init_ctx (&outer);
+ 
+   memset (block, OPAD, sizeof (block));
+-  memxor (block, key, keylen);
++  memxor_gsasl (block, key, keylen);
+ 
+   sha1_process_block (block, 64, &outer);
+   sha1_process_bytes (innerhash, 20, &outer);
+diff --git a/lib/gl/memxor.c b/lib/gl/memxor.c
+index edb87b3..904ac9a 100644
+--- a/lib/gl/memxor.c
++++ b/lib/gl/memxor.c
+@@ -22,7 +22,7 @@
+ #include "memxor.h"
+ 
+ void *
+-memxor (void *restrict dest, const void *restrict src, size_t n)
++memxor_gsasl (void *restrict dest, const void *restrict src, size_t n)
+ {
+   char const *s = src;
+   char *d = dest;
+diff --git a/lib/gl/memxor.h b/lib/gl/memxor.h
+index 0288be1..40895fa 100644
+--- a/lib/gl/memxor.h
++++ b/lib/gl/memxor.h
+@@ -25,6 +25,6 @@
+ /* Compute binary exclusive OR of memory areas DEST and SRC, putting
+    the result in DEST, of length N bytes.  Returns a pointer to
+    DEST. */
+-void *memxor (void *restrict dest, const void *restrict src, size_t n);
++void *memxor_gsasl (void *restrict dest, const void *restrict src, size_t n);
+ 
+ #endif /* MEMXOR_H */
+diff --git a/lib/scram/client.c b/lib/scram/client.c
+index 437dfb0..5aec1d0 100644
+--- a/lib/scram/client.c
++++ b/lib/scram/client.c
+@@ -378,7 +378,7 @@ _gsasl_scram_sha1_client_step (Gsasl_session * sctx,
+ 
+ 	  /* ClientProof := ClientKey XOR ClientSignature */
+ 	  memcpy (clientproof, clientkey, 20);
+-	  memxor (clientproof, clientsignature, 20);
++	  memxor_gsasl (clientproof, clientsignature, 20);
+ 
+ 	  free (clientkey);
+ 	  free (clientsignature);
+diff --git a/lib/scram/server.c b/lib/scram/server.c
+index d6d7ad5..285b7ba 100644
+--- a/lib/scram/server.c
++++ b/lib/scram/server.c
+@@ -403,7 +403,7 @@ _gsasl_scram_sha1_server_step (Gsasl_session * sctx,
+ 	      return rc;
+ 
+ 	    /* ClientKey := ClientProof XOR ClientSignature */
+-	    memxor (clientsignature, state->clientproof, 20);
++	    memxor_gsasl (clientsignature, state->clientproof, 20);
+ 
+ 	    rc = gsasl_sha1 (clientsignature, 20, &maybe_storedkey);
+ 	    free (clientsignature);

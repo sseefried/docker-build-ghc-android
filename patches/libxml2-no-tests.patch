@@ -1,0 +1,17 @@
+--- Makefile.in.orig	2013-09-22 19:05:54.181977000 +0100
++++ Makefile.in	2013-09-22 19:06:12.293977000 +0100
+@@ -37,14 +37,6 @@
+ POST_UNINSTALL = :
+ build_triplet = @build@
+ host_triplet = @host@
+-noinst_PROGRAMS = testSchemas$(EXEEXT) testRelax$(EXEEXT) \
+-	testSAX$(EXEEXT) testHTML$(EXEEXT) testXPath$(EXEEXT) \
+-	testURI$(EXEEXT) testThreads$(EXEEXT) testC14N$(EXEEXT) \
+-	testAutomata$(EXEEXT) testRegexp$(EXEEXT) testReader$(EXEEXT) \
+-	testapi$(EXEEXT) testModule$(EXEEXT) runtest$(EXEEXT) \
+-	runsuite$(EXEEXT) testchar$(EXEEXT) testdict$(EXEEXT) \
+-	runxmlconf$(EXEEXT) testrecurse$(EXEEXT)
+-bin_PROGRAMS = xmllint$(EXEEXT) xmlcatalog$(EXEEXT)
+ subdir = .
+ DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
+ 	$(srcdir)/Makefile.in $(srcdir)/config.h.in \

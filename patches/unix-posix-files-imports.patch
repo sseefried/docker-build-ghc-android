@@ -1,0 +1,11 @@
+--- a/System/Posix/Files/Common.hsc	2014-05-24 00:31:35.935498000 +0000
++++ b/System/Posix/Files/Common.hsc	2014-05-24 00:32:05.351498000 +0000
+@@ -92,6 +92,8 @@
+ import Data.Int
+ import Data.Ratio
+ #endif
++import Data.Int
++import Data.Ratio
+ import Data.Time.Clock.POSIX
+ import System.Posix.Internals
+ import Foreign.C

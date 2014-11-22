@@ -1,0 +1,13 @@
+diff --git a/lib/system.c b/lib/system.c
+index 9f32534..b7d512a 100644
+--- a/lib/system.c
++++ b/lib/system.c
+@@ -219,7 +219,7 @@ int
+ _gnutls_atfork (void (*prepare) (void), void (*parent) (void),
+                 void (*child) (void))
+ {
+-  return pthread_atfork (prepare, parent, child);
++  return 0;
+ }
+ 
+ #endif /* PTHREAD_LOCKS */

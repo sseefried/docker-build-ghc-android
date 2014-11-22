@@ -1,0 +1,14 @@
+NOTES
+
+Notes for my blog post
+
+Things Docker does right!
+- When you modify a script that is run Docker realises it is different
+  and will rewind its state back to the point where the ADD command for that
+  script occurred and then re-run from there. This is important!
+
+- Put all the long running, annoying, downloads at the beginning.
+
+- Add lots of little script files.
+- Add script files ONE AT A TIME. This way if you have add a new one then
+  it won't force a rebuild.
