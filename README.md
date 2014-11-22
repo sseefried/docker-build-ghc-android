@@ -25,12 +25,14 @@ known state and try again.
 
 In conclusion, Docker is great because:
 
-1. It helped me develop this script much more quickly and have confidence
-   that when it built for the first time it really would build again when
-   I started from a pristine environment.
+1. It helped *me*. This script was developed much more quickly than it otherwise
+   would have been. Because of how Docker works I had the confidence that it
+   would build from a pristine environment once I had successfully built it the
+   first time.
 
-2. It will help you as this script inevitably succumbs to bitrot. The script
-   may fail but you will not have to go all the way back to the beginning.
-   You can make a change to one of the many mini-scripts in the
-   ```user-scripts/``` directory.
+
+2. It will help *you*. This script will inevitably succumb to bitrot.
+   It may fail but when it does you will not have to go all the way back to the
+   beginning. You can make a change to one of the many mini-scripts in the
+   ```user-scripts/``` directory and try again from the point of failure.
 
