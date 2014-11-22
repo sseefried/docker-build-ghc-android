@@ -15,15 +15,16 @@ packages, some that require patches to make them work with Android.
 Developing a build script with this many dependencies is a nightmare.
 
 You can only be sure your script *really* works if you run it on a pristine
-environment. But finding your last change to the script breaks it 50 minutes
-in is just the thought of thing that can make you want to consider changing
-careers, especially if it happens a few times in a row.
+environment. But when your script breaks 50 minutes in it is just the sort of
+thing that can make you want to consider changing careers, especially if it
+happens a few times in a row. Development is made so much easier with
+quick turn-around times.
 
 The fantastic thing about Docker is that it effectively checkpoints the *entire
 file system* after each Dockerfile command allowing you to return to that
 known state and try again.
 
-In conclusion, Docker is great because:
+Docker is great because:
 
 1. It helped *me*. This script was developed much more quickly than it otherwise
    would have been. Because of how Docker works I had the confidence that it
