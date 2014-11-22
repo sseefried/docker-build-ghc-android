@@ -12,3 +12,11 @@ Things Docker does right!
 - Add lots of little script files.
 - Add script files ONE AT A TIME. This way if you have add a new one then
   it won't force a rebuild.
+
+- The original build script had to do things like check whether something
+  was installed or not. Sanity checks basically. You no longer need to do this!
+  You know EXACTLY what state it's going to be in.
+
+  You can "docker run -it <image> bash" to have a look at the state at any
+  point of the install process.
+

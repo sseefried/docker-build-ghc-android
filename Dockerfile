@@ -58,5 +58,44 @@ RUN ./unpack-ndk.sh
 ADD user-scripts/create-ndk-standalone-toolchain.sh $BASE/
 RUN ./create-ndk-standalone-toolchain.sh
 
-################# WORKING UP TO THIS POINT #################
+ADD user-scripts/unpack-ncurses.sh $BASE/
+RUN ./unpack-ncurses.sh
+
+ADD user-scripts/set-env-1.sh $BASE/
+
+#
+# From this point on all scripts should include set-env-1.sh which
+# itself builds upon set-env.sh
+#
+
+ADD user-scripts/build-iconv.sh $BASE/
+RUN ./build-iconv.sh
+
+ADD user-scripts/build-ncurses.sh $BASE/
+RUN ./build-ncurses.sh
+
+ADD user-scripts/build-gmp.sh $BASE/
+RUN ./build-gmp.sh
+
+ADD user-scripts/build-gsasl.sh $BASE/
+RUN ./build-gsasl.sh
+
+ADD user-scripts/build-libidn.sh $BASE/
+RUN ./build-libidn.sh
+
+ADD user-scripts/build-libxml2.sh $BASE/
+RUN ./build-libxml2.sh
+
+ADD user-scripts/build-nettle.sh $BASE/
+RUN ./build-nettle.sh
+
+ADD user-scripts/build-gnutls26.sh $BASE/
+RUN ./build-gnutls26.sh
+
+#
+# At last we are ready to build GHC. First we build it for the host
+# architecture and then we build the cross-compiler.
+#
+
+
 
