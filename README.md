@@ -8,6 +8,13 @@ GHC 7.8.3 cross compiler targeting the ARM architecture. Big thanks go out
 
     $ docker build .
 
+# Running
+
+You'll want to run the image inside an interactive shell. At the end of
+the build it will tell you the image ID of the final image.
+
+$ docker run -it <image ID> bash
+
 # Motivation
 
 This build script takes between 1 - 2 hours to run. It installs several
