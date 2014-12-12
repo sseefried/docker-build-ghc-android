@@ -27,7 +27,7 @@ thing that can make you want to consider changing careers, especially if it
 happens a few times in a row. Development is made so much easier with
 quick turn-around times.
 
-The fantastic thing about Docker is that it effectively checkpoints the *entire
+The fantastic thing about Docker is that it effectively takes a snapshot of the *entire
 file system* after each Dockerfile command allowing you to return to that
 known state and try again.
 
@@ -44,3 +44,6 @@ Docker is great because:
    beginning. You can make a change to one of the many mini-scripts in the
    ```user-scripts/``` directory and try again from the point of failure.
 
+## More information
+
+For more information read my [blog post](http://lambdalog.seanseefried.com/posts/2014-12-12-docker-build-scripts.html).
