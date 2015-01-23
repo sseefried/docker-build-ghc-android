@@ -1,12 +1,8 @@
 FROM joeyh/debian-stable-i386
 MAINTAINER sean.seefried@gmail.com
 
-#
-# I live in Australia so change the mirror to one more appropriate
-# to where you live.
-#
-run echo "deb http://ftp.au.debian.org/debian stable main" > /etc/apt/sources.list
-run echo "deb-src http://ftp.au.debian.org/debian stable main" >> /etc/apt/sources.list
+run echo "deb http://ftp.uk.debian.org/debian stable main" > /etc/apt/sources.list
+run echo "deb-src http://ftp.uk.debian.org/debian stable main" >> /etc/apt/sources.list
 RUN apt-get update && apt-get -y install build-essential ghc git libncurses5-dev cabal-install \
   llvm-3.0 ca-certificates curl file m4 autoconf zlib1g-dev \
   libgnutls-dev libxml2-dev libgsasl7-dev pkg-config python c2hs
@@ -21,8 +17,14 @@ RUN bash -c ./install-automake.sh
 ADD root-scripts/create-androidbuilder-user.sh /root/
 RUN bash -c ./create-androidbuilder-user.sh
 
-# Log-in to the new user and set the working directory
+# Log-in to the new user
 USER androidbuilder
+
+# Update cabal and install the latest
+RUN cabal update
+RUN cabal install cabal-install
+
+# Set the working directory
 ENV BASE /home/androidbuilder/ghc-build
 RUN mkdir -p $BASE/patches
 ADD patches/* $BASE/patches/
