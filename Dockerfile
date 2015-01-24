@@ -21,6 +21,7 @@ RUN bash -c ./create-androidbuilder-user.sh
 USER androidbuilder
 
 # Update cabal and install the latest
+WORKDIR /home/androidbuilder
 RUN cabal update
 RUN cabal install cabal-install
 
