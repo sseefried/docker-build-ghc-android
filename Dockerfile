@@ -30,8 +30,6 @@ ENV BASE /home/androidbuilder/ghc-build
 RUN mkdir -p $BASE/patches
 ADD patches/* $BASE/patches/
 ADD user-scripts/set-env.sh $BASE/
-
-
 WORKDIR $BASE
 
 #
