@@ -12,7 +12,7 @@ if [ -f \$HOME/.bashrc_default ]; then
 fi
 
 export GHC_HOST=\$HOME/.ghc/android-host
-export PATH=\$HOME/.ghc/android-14/arm-linux-androideabi-4.8/bin:\$PATH
+export PATH=\$HOME/.cabal/bin:\$HOME/.ghc/android-14/arm-linux-androideabi-4.8/bin:\$PATH
 export PLATFORM_PREFIX=\$HOME/.ghc/android-14/arm-linux-androideabi-4.8
 
 EOF
