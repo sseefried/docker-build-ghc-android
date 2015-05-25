@@ -1,9 +1,14 @@
-FROM joeyh/debian-stable-i386
+FROM tcm1911/wheezy-i386
 MAINTAINER sean.seefried@gmail.com
 
-run echo "deb http://ftp.uk.debian.org/debian stable main" > /etc/apt/sources.list
-run echo "deb-src http://ftp.uk.debian.org/debian stable main" >> /etc/apt/sources.list
-RUN apt-get update && apt-get -y install build-essential ghc git libncurses5-dev cabal-install \
+#
+# I live in Australia so change the mirror to one more appropriate
+# to where you live.
+#
+run echo "deb http://ftp.au.debian.org/debian wheezy main" > /etc/apt/sources.list
+run echo "deb-src http://ftp.au.debian.org/debian wheezy main" >> /etc/apt/sources.list
+RUN apt-get update
+RUN apt-get -y install build-essential ghc git libncurses5-dev cabal-install \
   llvm-3.0 ca-certificates curl file m4 autoconf zlib1g-dev \
   libgnutls-dev libxml2-dev libgsasl7-dev pkg-config python c2hs
 WORKDIR /root
@@ -27,8 +32,12 @@ RUN cabal install cabal-install
 
 # Set the working directory
 ENV BASE /home/androidbuilder/ghc-build
+
+# FIXME: Move the adding of the patches until later in the Docker build,
+# just before GHC is built
 RUN mkdir -p $BASE/patches
 ADD patches/* $BASE/patches/
+
 ADD user-scripts/set-env.sh $BASE/
 WORKDIR $BASE
 
@@ -113,6 +122,9 @@ RUN ./build-cross-compile-cabal.sh
 
 ADD user-scripts/add-bindir-links.sh $BASE/
 RUN ./add-bindir-links.sh
+
+ADD user-scripts/update-cabal-install.sh $BASE/
+RUN ./update-cabal-install.sh
 
 #
 # Now to add add some PATHs to the .bashrc

@@ -4,6 +4,9 @@ This package contains a Dockerfile and associated scripts to build a
 GHC 7.8.3 cross compiler targeting the ARM architecture. Big thanks go out
 *neuroctye* for the original build script and *joeyh* for additional changes.
 
+You will see some errors in the standard output, some that even look like they might be fatal.
+Stay strong and wait. It will build to the end. If it doesn't please contact me.
+
 # Installation
 
     $ docker build .
