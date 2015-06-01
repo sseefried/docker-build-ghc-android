@@ -9,6 +9,10 @@ Stay strong and wait. It will build to the end. If it doesn't please contact me.
 
 # Installation
 
+*Please build with at least Docker version 1.6*. Check with `docker version`.
+
+Once you've done that then:
+
     $ docker build .
 
 # Running
