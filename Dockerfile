@@ -27,8 +27,6 @@ USER androidbuilder
 
 # Update cabal and install the latest
 WORKDIR /home/androidbuilder
-RUN cabal update
-RUN cabal install cabal-install
 
 # Set the working directory
 ENV BASE /home/androidbuilder/ghc-build
@@ -40,6 +38,12 @@ ADD patches/* $BASE/patches/
 
 ADD user-scripts/set-env.sh $BASE/
 WORKDIR $BASE
+
+#
+# Update cabal
+#
+ADD user-scripts/update-host-cabal.sh $BASE/
+RUN ./update-host-cabal.sh
 
 #
 # These downloads take quite a while and are annoying. I put them here
