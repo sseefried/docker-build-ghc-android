@@ -5,4 +5,4 @@ source $THIS_DIR/set-env.sh
 ####################################################################################################
 
 cabal update
-cabal install cabal-install
+cabal install cabal-install-1.22.4.0
