@@ -59,6 +59,12 @@ function check_install_gmp_constants() {
     fi
 }
 
+#
+# The nature of parallel builds that once in a blue moon this directory does not get created
+# before we try to "/usr/bin/install -c -m 644  utils/hsc2hs/template-hsc.h "/home/androidbuilder/.ghc/android-host/lib/ghc-7.8.3"
+# This causes a conflict.
+#
+/usr/bin/install -c -m 755 -d "$GHC_PREFIX/lib/arm-unknown-linux-androideabi-ghc-7.8.3/include/"
 make $MAKEFLAGS || true # TMP hack, see http://hackage.haskell.org/trac/ghc/ticket/7490
 make $MAKEFLAGS || true # TMP hack, target mkGmpDerivedConstants fails on build host
 # There's a long pause at this point. Just be patient!
