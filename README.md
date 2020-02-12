@@ -65,10 +65,10 @@ The lesson I learned from trying to get Haskell working on Android was this: the
 
 It took me a long time, literally months, to get this development environment going and now I discover that it has succumbed to bitrot in the space of a few short years.
 
-The lesson learned was a very difficult one for me to absorb, since I love Haskell as a programming language. It made me realise just how much we depend on working ecosystems of software in order to be productive. We stand on the shoulders of giants all the time.
+The lesson learned was a very difficult one for me to absorb, since I love Haskell as a programming language. It made me realise just how much we depend on working ecosystems of software in order to be productive. We stand on the shoulders of giants _all the time_.
 
-Making a game written in Haskell that runs on iOS and Android reminds me very much of the guy who made a sandwich from scratch. You can watch his story here. 6 months for a self-declared "not bad" (i.e. decidedly average) sandwich.
+Making a game written in Haskell that runs on iOS and Android reminds me very much of the guy who made a sandwich from scratch. You can watch his story [here](https://www.youtube.com/watch?v=URvWSsAgtJE). 6 months for a self-declared "not bad" (i.e. decidedly average) sandwich.
 
 I had to ask myself the question, was I really interested in making games or was I more interested in creating platforms for people to run the games on?
 
-Would you believe that I am now learning to make games in Unity in C#? I thought the day would never come, but that is what I am doing and, in a little over a week I had made this. Sure, it's nothing special but it's better than the game I made in Haskell 5 - 6 years ago. You can view that here.
+Would you believe that I am now learning to make games in Unity in C#? I thought the day would never come, but that is what I am doing and, in a little over a week I had made [this](http://seanseefried.org/games/block-breaker/). Sure, it's nothing special but it's better than the game I made in Haskell 5 - 6 years ago. You can view that [here](https://www.youtube.com/watch?v=PkIhzVGIsxI).
