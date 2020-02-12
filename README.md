@@ -58,8 +58,8 @@ For more information read my [blog post](http://lambdalog.seanseefried.com/posts
 ## Post script - 10 Feb 2020
 
 And now for a public service announcement. If you _actually_ want to make games
-don't [nerdsnipe](https://www.xkcd.com/356/) yourself like I did and work on the technological
-foundations. Just make games on a platform that you can be productive in.
+don't [nerdsnipe](https://www.xkcd.com/356/) yourself like I did and work on technological
+foundations. Make games, as many as you can, as fast as you can, on a platform that you can be productive in.
 
 The lesson I learned from trying to get Haskell working on Android was this: the choice of programming language matters far less than the vibrancy of the community supporting your programming language for a particular domain (in this case: games).
 
